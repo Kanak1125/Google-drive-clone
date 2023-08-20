@@ -6,7 +6,7 @@ import Login from './components/authentication/Login';
 import PrivateRoute from './components/authentication/PrivateRoute';
 import ForgotPassword from './components/authentication/ForgotPassword';
 import UpdateProfile from './components/authentication/UpdateProfile';
-import Dashboard from './components/google-drive/Dashboard';
+import Dashboard from './components/drive/Dashboard';
 import PrivateRoute2 from './components/authentication/PrivateRoute2';
 
 function App() {
@@ -33,6 +33,9 @@ function App() {
               </Route>
               <Route element={<PrivateRoute componentToRender={<Dashboard />}/>}>
                 <Route path='/' element={<Dashboard />}/>
+              </Route>
+              <Route element={<PrivateRoute componentToRender={<Dashboard />}/>}>
+                <Route path='/folder/:folderId' element={<Dashboard />}/>
               </Route>
             </Routes>
           </AuthProvider>
