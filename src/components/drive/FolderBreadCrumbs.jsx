@@ -19,13 +19,19 @@ const FolderBreadCrumbs = ({ currentFolder }) => {
                 // linkProps is an object that holds properties to be passed to the underlying 'Link' component...
                 linkProps={{
                     to: {
-                        pathname: folder.id ? `folder/${folder.id}` : '/',
-                        state: { folder: {...folder, path: path.slice(1, index) } },
+                        pathname: folder.id ? `/folder/${folder.id}` : '/',
+                        // the following state is not being updated properly...
+                        state: { 
+                            folder: {
+                                    ...folder, 
+                                    path: path.slice(1, index) 
+                                } 
+                            },
                         // the state is passed as folder: {
                             // ...folder // previous folder props like name and id...
                             // (extra) subset of path, if we are in ['root', 'newfolder1', 'child', 'grandchild'], we'll set the path to ['newfolder1', 'child'] so it can remain when traversing to the other folders or files...
                         // }
-                    }
+                    },
                 }}
                 className='text-truncate d-inline-block'
                 style={{ maxWidth: "150px" }}  

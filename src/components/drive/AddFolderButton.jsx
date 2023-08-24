@@ -56,7 +56,7 @@ const AddFolderButton = ({ currentFolder }) => {
     }
   return (
     <>
-        <Button onClick={openModal} variant='success' size='sm'>
+        <Button onClick={openModal} variant='success' size='sm' className='me-2'>
             <FaFolderPlus size='24'/>
         </Button>
         <Modal show={open} onHide={closeModal}>

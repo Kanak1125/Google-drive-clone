@@ -1,0 +1,6 @@
+.del-btn {
+    display: none !important;
+}
+.link:hover .del-btn{
+    display: block !important;
+}

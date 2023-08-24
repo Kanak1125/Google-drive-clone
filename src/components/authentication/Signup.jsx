@@ -24,7 +24,7 @@ const Signup = () => {
             setError('');
             setIsLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
-            navigate('/user');
+            navigate('/');
         } catch (err) {
             setError("Failed to create an account");
         }
