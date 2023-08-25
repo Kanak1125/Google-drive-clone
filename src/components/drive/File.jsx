@@ -1,8 +1,8 @@
 import { FaFile } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
 import { database, storage } from '../../firebase';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { ROOT_FOLDER } from '../../hooks/useFolder';
+import Delete from './Delete';
 
 const File = ({ file, currentFolder }) => {
   console.log(file, currentFolder);
@@ -42,19 +42,10 @@ const File = ({ file, currentFolder }) => {
     <a href={file.url} target='_blank' className='btn btn-outline-dark text-truncate w-100 position-relative link' >
         < FaFile className='me-2'/>
         {file.name}
-        < MdDelete 
-          size={22} 
-          className='del-btn btn-outline-dark'
-          style={{
-            position: 'absolute',
-            right: '5px',
-            top: '50%',
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            border: "1px solid white"
-          }}
-          onClick={(e) => deleteFile(e, file)}
-        />
+       <Delete
+        currentItem = { file }
+        deleteFunc = {(e) => deleteFile(e, file)}
+       />
     </a>
   )
 }
